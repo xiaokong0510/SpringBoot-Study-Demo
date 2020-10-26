@@ -1,0 +1,9 @@
+user:
+  username: zhangsan@dev
+  age: 20
+  lists: [cat,dog,pig]
+  maps: {k1: v1,k2: 12}
+
+developer:
+  name: kongxiao@dev
+  phone-number: xxxxxx@dev
