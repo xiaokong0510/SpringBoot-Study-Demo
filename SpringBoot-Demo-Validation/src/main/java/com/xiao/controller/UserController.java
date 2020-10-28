@@ -1,5 +1,6 @@
 package com.xiao.controller;
 
+import com.xiao.pojo.UserInfo;
 import com.xiao.response.CommonResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ public class UserController {
 
 
     @GetMapping("/user")
-    public CommonResult get(@NotNull Integer id, @NotNull String name) {
+    public CommonResult get(@Validated UserInfo userInfo) {
         return CommonResult.success(null, "操作成功！");
 
     }

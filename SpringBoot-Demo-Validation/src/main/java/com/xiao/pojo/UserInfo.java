@@ -2,6 +2,8 @@ package com.xiao.pojo;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @Classname UserInfo
  * @Description 用户信息实体类
@@ -11,7 +13,8 @@ import lombok.Data;
  */
 @Data
 public class UserInfo {
-
+    @NotNull
     private String username;
+    @NotNull
     private Integer roleId;
 }
