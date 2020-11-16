@@ -24,10 +24,9 @@ public class CommonResult {
         return r;
     }
 
-    public static CommonResult error(Object data, String msg) {
+    public static CommonResult error( String msg) {
         CommonResult r = new CommonResult();
         r.setCode(-1);
-        r.setData(data);
         r.setMsg(msg);
         return r;
     }
