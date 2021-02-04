@@ -1,0 +1,35 @@
+###
+GET http://localhost:8087/user/userList
+
+
+###
+GET http://localhost:8087/user/1
+
+###
+PUT http://localhost:8087/user
+Content-Type: application/json
+
+{
+  "name": "user_3",
+  "password": "test",
+  "salt": "test",
+  "email": "user3@coding.com",
+  "phoneNumber": "17300000003"
+}
+
+###
+POST http://localhost:8087/user
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "user_3333",
+  "password": "test333",
+  "salt": "test33",
+  "email": "user3@coding.com",
+  "phoneNumber": "17300000003"
+}
+
+###
+DELETE http://localhost:8087/user/3
+

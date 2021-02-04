@@ -14,6 +14,8 @@
         <module>SpringBoot-Demo-Validation</module>
         <module>SpringBoot-Demo-SignVerify</module>
         <module>SpringBoot-Demo-LogAop</module>
+        <module>SpringBoot-Demo-Swagger</module>
+        <module>SpringBoot-Demo-Mybatis</module>
     </modules>
 
     <properties>
