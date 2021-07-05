@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Classname PropertiesController
- * @Description TODO
  * @Date 2020/10/26
  * @Author KongX
  * @version: 1.0.0

@@ -9,13 +9,13 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>SpringBoot-Demo-HelloWorld</module>
-        <module>SpringBoot-Demo-Properties</module>
-        <module>SpringBoot-Demo-Validation</module>
-        <module>SpringBoot-Demo-SignVerify</module>
-        <module>SpringBoot-Demo-LogAop</module>
-        <module>SpringBoot-Demo-Swagger</module>
-        <module>SpringBoot-Demo-Mybatis</module>
+        <module>demo-helloworld</module>
+        <module>demo-properties</module>
+        <module>demo-validation</module>
+        <module>demo-sign-verify</module>
+        <module>demo-log-aop</module>
+        <module>demo-swagger</module>
+        <module>demo-mybatis</module>
     </modules>
 
     <properties>

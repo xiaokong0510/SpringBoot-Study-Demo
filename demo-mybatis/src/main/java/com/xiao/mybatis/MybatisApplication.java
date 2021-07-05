@@ -1,19 +1,21 @@
-package com.xiao;
+package com.xiao.mybatis;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @Classname com.xiao.HelloWorldApplication
+ * @Classname MybatisApplication
  * @Description TODO
- * @Date 2020/10/26
+ * @Date 2021/1/25
  * @Author KongX
- * @version: 1.0.0
+ * @Version: 1.0.0
  */
 @SpringBootApplication
-public class HelloWorldApplication {
+@MapperScan("com.xiao.mybatis.mapper")
+public class MybatisApplication {
     public static void main(String[] args) {
-        SpringApplication.run(HelloWorldApplication.class, args);
+        SpringApplication.run(MybatisApplication.class);
         System.out.println("--------service start success ------");
     }
 }

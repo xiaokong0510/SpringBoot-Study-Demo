@@ -1,6 +1,5 @@
 package com.xiao.mybatis.common;
 
-import cn.hutool.core.util.StrUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,15 +34,15 @@ public class ApiResponse implements Serializable {
     private Object data;
 
     public static  ApiResponse ok(Object data) {
-        return (ApiResponse) builder().code(200).message("操作成功").data(data).build();
+        return builder().code(200).message("操作成功").data(data).build();
     }
 
     public static  ApiResponse ok() {
-        return (ApiResponse) builder().code(200).message("操作成功").build();
+        return builder().code(200).message("操作成功").build();
     }
 
     public static  ApiResponse error() {
-        return (ApiResponse) builder().code(500).message("操作失败").build();
+        return builder().code(500).message("操作失败").build();
     }
 
 }
