@@ -15,7 +15,6 @@ import java.util.Map;
  * @version: 1.0.0
  */
 @Data
-@Component
 @ConfigurationProperties(prefix = "user")
 public class UserInfoProperty {
 

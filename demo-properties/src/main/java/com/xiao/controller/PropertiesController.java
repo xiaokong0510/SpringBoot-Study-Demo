@@ -4,6 +4,7 @@ import cn.hutool.core.lang.Dict;
 import com.xiao.property.DeveloperProperty;
 import com.xiao.property.UserInfoProperty;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @version: 1.0.0
  */
 @RestController
+@EnableConfigurationProperties(UserInfoProperty.class)
 public class PropertiesController {
 
     @Autowired
