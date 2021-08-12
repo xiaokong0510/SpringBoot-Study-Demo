@@ -23,6 +23,7 @@
         <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
         <hutool.version>5.4.1</hutool.version>
         <fastjson.version>1.2.47</fastjson.version>
+        <lombok.version>1.18.12</lombok.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -47,6 +48,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
