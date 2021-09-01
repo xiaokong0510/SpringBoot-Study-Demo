@@ -18,14 +18,20 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableConfigurationProperties(UserInfoProperty.class)
 public class PropertiesController {
 
+    private final DeveloperProperty developerProperty;
+
+    private final UserInfoProperty userInfoProperty;
+
     @Autowired
-    private DeveloperProperty developerProperty;
-    @Autowired
-    private UserInfoProperty userInfoProperty;
+    public PropertiesController(DeveloperProperty developerProperty, UserInfoProperty userInfoProperty) {
+        this.developerProperty = developerProperty;
+        this.userInfoProperty = userInfoProperty;
+    }
+
 
     @RequestMapping("/property")
     public Dict getProperties() {
-       return Dict.create().set("userInfoProperty", userInfoProperty).set("developerProperty", developerProperty);
+        return Dict.create().set("userInfoProperty", userInfoProperty).set("developerProperty", developerProperty);
     }
 
 }

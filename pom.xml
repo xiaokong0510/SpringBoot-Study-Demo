@@ -12,7 +12,6 @@
         <module>demo-helloworld</module>
         <module>demo-properties</module>
         <module>demo-validation</module>
-        <module>demo-sign-verify</module>
         <module>demo-log-aop</module>
         <module>demo-swagger</module>
         <module>demo-mybatis</module>
