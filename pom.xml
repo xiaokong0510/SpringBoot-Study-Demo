@@ -19,7 +19,7 @@
     </modules>
 
     <properties>
-        <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
+        <spring.boot.version>2.2.5.RELEASE</spring.boot.version>
         <hutool.version>5.4.1</hutool.version>
         <fastjson.version>1.2.47</fastjson.version>
         <lombok.version>1.18.12</lombok.version>

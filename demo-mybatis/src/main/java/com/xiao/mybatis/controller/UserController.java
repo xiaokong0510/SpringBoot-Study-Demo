@@ -3,7 +3,6 @@ package com.xiao.mybatis.controller;
 import com.xiao.mybatis.common.ApiResponse;
 import com.xiao.mybatis.pojo.User;
 import com.xiao.mybatis.service.UserService;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

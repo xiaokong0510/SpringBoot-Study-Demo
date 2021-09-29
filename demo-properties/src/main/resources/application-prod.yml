@@ -7,3 +7,8 @@ user:
 developer:
   name: kongxiao@prod
   phone-number: xxxxxx@prod
+
+blog:
+  name: Spring Boot
+  title: 配置文件
+  desc: ${blog.name}的标题是${blog.title}

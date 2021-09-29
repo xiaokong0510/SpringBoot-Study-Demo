@@ -1,4 +1,2 @@
 server:
-  port: 8085
-  servlet:
-    context-path: /demo05
+  port: 8083

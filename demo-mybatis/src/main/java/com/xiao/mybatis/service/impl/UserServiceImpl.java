@@ -1,6 +1,5 @@
 package com.xiao.mybatis.service.impl;
 
-import com.xiao.mybatis.common.ApiResponse;
 import com.xiao.mybatis.mapper.UserMapper;
 import com.xiao.mybatis.pojo.User;
 import com.xiao.mybatis.service.UserService;

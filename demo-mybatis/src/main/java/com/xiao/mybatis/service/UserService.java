@@ -1,10 +1,6 @@
 package com.xiao.mybatis.service;
 
-import com.xiao.mybatis.common.ApiResponse;
 import com.xiao.mybatis.pojo.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 

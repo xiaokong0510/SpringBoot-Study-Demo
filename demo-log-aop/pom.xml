@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>SpringBoot-Demo-LogAop</artifactId>
+    <artifactId>demo-log-aop</artifactId>
     <description>使用AOP切面对请求进行日志记录</description>
 
 

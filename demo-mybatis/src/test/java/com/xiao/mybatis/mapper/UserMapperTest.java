@@ -1,7 +1,7 @@
 package com.xiao.mybatis.mapper;
 
-import com.xiao.mybatis.MybatisApplicationTest;
 import com.xiao.mybatis.pojo.User;
+import com.xiao.validation.mybatis.MybatisApplicationTest;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
