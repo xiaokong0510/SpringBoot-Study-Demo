@@ -12,7 +12,7 @@ import lombok.Data;
  * @version: 1.0.0
  */
 @Data
-@ApiModel("统一返回结果")
+@ApiModel(value = "CommonResult",description = "统一返回结果")
 public class CommonResult<T> {
     @ApiModelProperty(value = "成功标识；true：成功；false:失败")
     private boolean success;

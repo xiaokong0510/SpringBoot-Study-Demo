@@ -16,12 +16,12 @@ import java.util.*;
  */
 @RestController
 @RequestMapping("/users")
-@Api("用户相关接口")
+@Api(tags = "User",produces = "application/json")
 public class UserController {
 
     static Map<Integer, User> users = Collections.synchronizedMap(new HashMap<>());
 
-    @ApiOperation(value = "获取用户列表")
+    @ApiOperation(value = "获取用户列表",notes = "获取所有的用户信息列表")
     @ApiResponses({@ApiResponse(code = 200, message = "操作成功"),
             @ApiResponse(code = 500, message = "服务器内部异常"),
             @ApiResponse(code = 401, message = "权限不足")})

@@ -1,4 +1,4 @@
-# Springboot集成Swagger2
+# SpringBoot集成Swagger2
 
 **Swagger2** 是一个规范和完整的框架，可以用于生成、描述、调用和可视化 RESTful 风格的 Web 服务：
 
@@ -20,6 +20,7 @@
 ## 添加 Swagger2 依赖 
 
 ```xml
+<dependency>
     <groupId>io.springfox</groupId>
     <artifactId>springfox-swagger2</artifactId>
     <version>2.9.2</version>
@@ -80,7 +81,7 @@ public class Swagger2Config {
 - `apiInfo()`用来创建该Api的基本信息，这些基本信息会展现在文档页面中
 - `select()`函数返回一个`ApiSelectorBuilder`实例用来控制哪些接口暴露给Swagger来展现
 
-## 添加文档内容
+## 添加注解
 
 使用注解来生成文档内容。
 
@@ -103,9 +104,9 @@ public class Swagger2Config {
 
 **属性：**
 
-- `value`： 用于方法描述
-- `tags`： 对接口进行分组
-- `produces`： 采用逗号分隔的 content types,例如:application/json,application/xml 生成JSON和XML的输出
+- `tags`： 对接口进行分组；
+- `value`： 在UI界面上不显示；
+- `produces`： content types，例如："application/json, application/xml"；
 
 生成的 api 文档会根据 tags 分类，这个 controller 中的所有接口生成的接口文档都会在 tags 这个 list 下；tags 如果有多个值，会生成多个 list，每个 list 都显示所有接口
 
@@ -116,22 +117,81 @@ public class Swagger2Config {
 
 ### @ApiOperation
 
-**使用场景：** 使用于在方法上，表示一个 http 请求的操作；
+**使用场景：** 使用于在方法上，表示一个 http 请求的操作；具有相同路径的不同操作会被归组为同一个操作对象
 
 **属性：**
-
-
 
 - `value`： 用于方法描述
 - `notes`： 用于提示内容
 
-## RESTful API
+### @ApiModel
+
+**使用场景：** 用于响应实体类上，用于说明实体作用
+
+**属性：**
+
+- `value`： 实体值
+- `description`： 描述实体的作用
+
+### @ApiModelProperty
+
+**使用场景：**用在属性上，描述实体类的属性
+
+**属性：**
+
+- `value`： 描述参数的意义
+- `name`： 参数的变量名
+- `required=true`：参数是否必选
+
+### @ApiImplicitParams
+
+**使用场景：** 用在请求的方法上，包含多 `@ApiImplicitParam`
+
+**属性：**
+
+- `value`： 用于方法描述
+- `description`： 描述实体的作用
+
+### @ApiImplicitParam
+
+**使用场景：** 用于方法上，表示单独的请求参数
+
+**属性：**
+
+- `name`：参数名
+
+- `value`： 参数说明
+- `dataType`：数据类型
+- `paramType`： 表示参数放在哪里，包括
+  -  header 请求参数的获取：@RequestHeader
+  - query   请求参数的获取：@RequestParam
+  -  path（用于restful接口） 请求参数的获取：@PathVariable
+  - body
+  - form
+
+- `defaultValue`：参数默认值
+- `required=true`：参数是否必选
+
+### @ApiResponses
+
+**使用场景：** 用于请求的方法上，根据响应码表示不同响应。一个`@ApiResponses`包含多个`@ApiResponse`
+
+### @ApiResponse
+
+**使用场景：**用在请求的方法上，表示不同的响应
+
+**属性：**
+
+- `code`： 表示响应码(int型)，可自定义
+- `message`： 状态码对应的响应信息
+
+## RESTful API 文档
 
 ### 统一返回格式
 
 ```java
 @Data
-@ApiModel("统一返回结果")
+@ApiModel(value = "CommonResult",description = "统一返回结果")
 public class CommonResult<T> {
     @ApiModelProperty(value = "成功标识；true：成功；false:失败")
     private boolean success;
@@ -139,7 +199,7 @@ public class CommonResult<T> {
     private int code;
     @ApiModelProperty(value = "描述信息")
     private String msg;
-
+    @ApiModelProperty(value = "数据")
     private T data;
 
     public static <T> CommonResult<T> success(T data) {
@@ -159,4 +219,6 @@ public class CommonResult<T> {
 ```
 
 ![img](https://image.kongxiao.top/20211018113252.png)
+
+
 
