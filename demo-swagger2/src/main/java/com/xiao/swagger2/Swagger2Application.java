@@ -1,4 +1,4 @@
-package com.xiao.swaggger;
+package com.xiao.swagger2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,10 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version: 1.0.0
  */
 @SpringBootApplication
-public class SwaggerApplication {
+public class Swagger2Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(SwaggerApplication.class);
-        System.out.println("-------start service at port 8086---------");
+        SpringApplication.run(Swagger2Application.class);
+        System.out.println("-------start service at port 8084---------");
     }
 }

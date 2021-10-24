@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>SpringBoot-Demo-Swagger</artifactId>
+    <artifactId>demo-swagger2</artifactId>
+    <description>SpringBoot整合swagger2</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
