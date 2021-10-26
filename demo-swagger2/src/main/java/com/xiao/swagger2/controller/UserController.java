@@ -34,16 +34,16 @@ public class UserController {
     @ApiOperation(value = "获取单个用户信息", notes = "根据用户id查询")
     @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "Integer")
     @GetMapping(value = "/{id}")
-    public User getUserById(@PathVariable("id") Integer id) {
-        return users.get(id);
+    public CommonResult<User> getUserById(@PathVariable("id") Integer id) {
+        return CommonResult.success(users.get(id));
     }
 
     @ApiOperation(value = "创建用户")
     @ApiImplicitParam(name = "user", value = "用户详细信息", required = true, dataType = "User")
     @PostMapping
-    public User createUser(@RequestBody User user) {
+    public CommonResult<User> createUser(@RequestBody User user) {
         users.put(user.getId(), user);
-        return user;
+        return CommonResult.success(user);
     }
 
     @ApiOperation(value = "修改用户信息")
@@ -52,20 +52,20 @@ public class UserController {
             @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "Integer")
     })
     @PutMapping("/{id}")
-    public User updateUser(@RequestBody User user, @PathVariable("id") Integer id) {
+    public CommonResult<User> updateUser(@RequestBody User user, @PathVariable("id") Integer id) {
         User u = users.get(id);
         u.setUsername(user.getUsername());
         u.setAge(user.getId());
         users.put(user.getId(), user);
-        return user;
+        return CommonResult.success(user);
     }
 
     @ApiOperation(value = "删除单个用户信息", notes = "根据用户id删除")
     @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "Integer")
     @DeleteMapping(value = "/{id}")
-    public User deleteUserById(@PathVariable("id") Integer id) {
+    public CommonResult<User> deleteUserById(@PathVariable("id") Integer id) {
         users.remove(id);
-        return users.get(id);
+        return CommonResult.success(users.get(id));
     }
 
 }

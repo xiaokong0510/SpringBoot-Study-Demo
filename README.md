@@ -4,5 +4,5 @@ SpringBoot-Study-Demo
 2. [demo-properties  配置文件](./demo-properties)
 3. [demo-validation  JSR 303 请求参数校验](./demo-validation)
 4. [demo-log-aop  AOP 日志切面](./demo-log-aop)
-5. [demo-swagger  Swagger2  API文档](./demo-swagger)
+5. [demo-swagger  Swagger2 API文档](./demo-swagger2)
 

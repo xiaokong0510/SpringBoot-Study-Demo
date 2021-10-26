@@ -15,7 +15,6 @@
         <module>demo-log-aop</module>
         <module>demo-swagger2</module>
         <module>demo-mybatis</module>
-        <module>demo-shiro</module>
     </modules>
 
     <properties>
