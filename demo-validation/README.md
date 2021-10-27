@@ -42,7 +42,7 @@ public CommonResult addUser(UserInfo userInfo ) {
 </dependency>
 ```
 
-在SpringBoot 2.3.x 版本以后将这个依赖移除了，所以 2.3 以后的版本需要手动添加，2.3 以下的版本则不需要自己添加。
+在Spring Boot 2.1版本中，该依然其实已经包含在了spring-boot-starter-web依赖中，并不需要额外引入
 
 ## 2 几个案例
 
