@@ -4,6 +4,14 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/mybatis?userUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8
     username: root
     password: root
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      idle-timeout: 500000
+      max-lifetime: 540000
+      connection-timeout: 60000
+      connection-test-query: SELECT 1
+
 # 日志级别
 logging:
   level:
@@ -16,4 +24,5 @@ mybatis:
   type-aliases-package: com.xiao.mybatis.pojo
 
 server:
-  port: 8087
+  port: 8085
+

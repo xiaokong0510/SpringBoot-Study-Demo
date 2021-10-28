@@ -1,8 +1,11 @@
 package com.xiao.mybatis.pojo;
 
+import lombok.Builder;
 import lombok.Data;
 
+import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -13,6 +16,7 @@ import java.util.Date;
  * @Version: 1.0.0
  */
 @Data
+@Builder
 public class User implements Serializable {
     public static final long serialVersionUID = 1L;
 
@@ -27,42 +31,22 @@ public class User implements Serializable {
     private String name;
 
     /**
-     * 加密后的密码
-     */
-    private String password;
-
-    /**
-     * 加密使用的盐
-     */
-    private String salt;
-
-    /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
      * 手机号码
      */
     private String phoneNumber;
 
     /**
-     * 状态，-1：逻辑删除，0：禁用，1：启用
+     * 状态，1 有效；0 无效
      */
-    private Integer status;
-
-    /**
-     * 上次登录时间
-     */
-    private Date lastLoginTime;
+    private Byte status;
 
     /**
      * 创建时间
      */
-    private Date createTime;
+    private LocalDateTime createTime;
 
     /**
-     * 上次更新时间
+     * 更新时间
      */
-    private Date updateTime;
+    private LocalDateTime updateTime;
 }

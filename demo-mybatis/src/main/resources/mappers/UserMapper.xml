@@ -4,8 +4,8 @@
 
 
     <insert id="add">
-        INSERT INTO `user` (`name`, `password`, `salt`, `email`, `phone_number`)
-        VALUES (#{name}, #{password}, #{salt}, #{email}, #{phoneNumber})
+        INSERT INTO `user` (`name`,`phone_number`,`status`,`create_time`,`update_time`)
+        VALUES (#{name}, #{phoneNumber}, #{status},#{createTime}, #{updateTime})
     </insert>
 
     <update id="update">
@@ -14,17 +14,17 @@
             <if test="name != null">
                 name = #{name},
             </if>
-            <if test="password != null">
-                password = #{password},
-            </if>
-            <if test="salt != null">
-                salt = #{salt},
-            </if>
-            <if test="email != null">
-                email = #{email},
-            </if>
             <if test="phoneNumber != null">
                 phone_number = #{phoneNumber},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
             </if>
         </set>
         WHERE id = #{id}
