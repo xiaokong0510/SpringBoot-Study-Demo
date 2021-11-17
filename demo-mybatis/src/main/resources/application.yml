@@ -12,17 +12,15 @@ spring:
       connection-timeout: 60000
       connection-test-query: SELECT 1
 
-# 日志级别
-logging:
-  level:
-    com.xiao.mybatis.mapper: debug
+
 # mybatis配置，下划线转驼峰
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:mappers/*.xml
   type-aliases-package: com.xiao.mybatis.pojo
 
 server:
-  port: 8085
+  port: 8086
 

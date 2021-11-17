@@ -14,7 +14,9 @@
         <module>demo-validation</module>
         <module>demo-log-aop</module>
         <module>demo-swagger2</module>
+        <module>demo-jdbctemplate</module>
         <module>demo-mybatis</module>
+        <module>demo-jpa</module>
     </modules>
 
     <properties>
@@ -54,4 +56,20 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>

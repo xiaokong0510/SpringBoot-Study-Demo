@@ -1,6 +1,6 @@
 package com.xiao.mybatis.mapper;
 
-import com.xiao.mybatis.pojo.User;
+import com.xiao.mybatis.entity.User;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -31,7 +31,7 @@ public interface UserMapper {
      * @return 用户信息
      */
     @Select("SELECT * FROM user WHERE id = #{id}")
-    User selectById(@Param("id") Integer id);
+    User selectById(@Param("id") Long id);
 
     /**
      * 新增用户信息
@@ -54,5 +54,5 @@ public interface UserMapper {
      * @return 成功 ：1； 失败 ： 0
      */
     @Delete("update user set status = 0 where id = #{id}")
-    int deleteById(@Param("id") Integer id);
+    int deleteById(@Param("id") Long id);
 }

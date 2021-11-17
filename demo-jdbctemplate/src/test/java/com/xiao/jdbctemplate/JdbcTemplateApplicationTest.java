@@ -1,7 +1,7 @@
-package com.xiao.mybatis;
+package com.xiao.jdbctemplate;
 
-import com.xiao.mybatis.mapper.UserMapper;
-import com.xiao.mybatis.entity.User;
+import com.xiao.jdbctemplate.entity.User;
+import com.xiao.jdbctemplate.service.UserService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,10 +22,9 @@ import java.util.Optional;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MybatisApplicationTest {
-
+public class JdbcTemplateApplicationTest {
     @Autowired
-    private UserMapper userMapper;
+    private UserService userService;
     private User user;
 
     @Before
@@ -50,26 +49,35 @@ public class MybatisApplicationTest {
     @Transactional
     @Rollback
     public void testAddAndSelectAll() {
-        userMapper.add(user);
-        List<User> users = userMapper.selectAll();
+        Long userId = userService.add(user);
+        User user = userService.selectById(userId);
+        Assert.assertEquals(phoneNumber, user.getPhoneNumber());
+        List<User> users = userService.selectAll();
         Assert.assertEquals(1, users.size());
         Assert.assertEquals(name, users.get(0).getName());
-        User queryUser = userMapper.selectById(this.user.getId());
-        Assert.assertNotNull(queryUser);
     }
 
     @Test
     @Transactional
     @Rollback
-    public void testUpdateAndDelete() {
-        userMapper.add(user);
-        Long userId = user.getId();
-        User queryUser = userMapper.selectById(userId);
+    public void testAddAndUpdate() {
+        Long userId = userService.add(user);
+        User user = userService.selectById(userId);
         String newName = "lisi";
-        queryUser.setName(newName);
-        userMapper.update(queryUser);
-        Assert.assertEquals(newName, userMapper.selectById(userId).getName());
-        userMapper.deleteById(userId);
-        Assert.assertEquals((byte) 0, (Object) userMapper.selectById(userId).getStatus());
+        user.setName(newName);
+        userService.update(user);
+        Assert.assertNotNull(userService.selectById(userId));
     }
+
+    @Test
+    @Transactional
+    @Rollback
+    public void testDelete() {
+        Long userId = userService.add(user);
+        userService.deleteById(userId);
+        User user = userService.selectById(userId);
+        Assert.assertEquals(Optional.of((byte) 0).get(), user.getStatus());
+
+    }
+
 }

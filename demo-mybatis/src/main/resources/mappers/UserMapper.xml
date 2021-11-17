@@ -3,9 +3,10 @@
 <mapper namespace="com.xiao.mybatis.mapper.UserMapper">
 
 
-    <insert id="add">
-        INSERT INTO `user` (`name`,`phone_number`,`status`,`create_time`,`update_time`)
-        VALUES (#{name}, #{phoneNumber}, #{status},#{createTime}, #{updateTime})
+    <!--useGeneratedKeys="true"，返回自增主键-->
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `user` (`name`, `phone_number`, `status`, `create_time`, `update_time`)
+        VALUES (#{name}, #{phoneNumber}, #{status}, #{createTime}, #{updateTime})
     </insert>
 
     <update id="update">

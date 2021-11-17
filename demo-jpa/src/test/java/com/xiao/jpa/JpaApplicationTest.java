@@ -1,7 +1,7 @@
-package com.xiao.mybatis;
+package com.xiao.jpa;
 
-import com.xiao.mybatis.mapper.UserMapper;
-import com.xiao.mybatis.entity.User;
+import com.xiao.jpa.entity.User;
+import com.xiao.jpa.repository.UserRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,19 +13,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 /**
  * @author KongXiao
- * @date 2021/10/28
+ * @date 2021/10/29
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MybatisApplicationTest {
+public class JpaApplicationTest {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserRepository userRepository;
     private User user;
 
     @Before
@@ -50,26 +49,11 @@ public class MybatisApplicationTest {
     @Transactional
     @Rollback
     public void testAddAndSelectAll() {
-        userMapper.add(user);
-        List<User> users = userMapper.selectAll();
-        Assert.assertEquals(1, users.size());
-        Assert.assertEquals(name, users.get(0).getName());
-        User queryUser = userMapper.selectById(this.user.getId());
-        Assert.assertNotNull(queryUser);
-    }
-
-    @Test
-    @Transactional
-    @Rollback
-    public void testUpdateAndDelete() {
-        userMapper.add(user);
-        Long userId = user.getId();
-        User queryUser = userMapper.selectById(userId);
-        String newName = "lisi";
-        queryUser.setName(newName);
-        userMapper.update(queryUser);
-        Assert.assertEquals(newName, userMapper.selectById(userId).getName());
-        userMapper.deleteById(userId);
-        Assert.assertEquals((byte) 0, (Object) userMapper.selectById(userId).getStatus());
+        User save = userRepository.save(user);
+        User userByName = userRepository.findByName(name);
+        Assert.assertEquals(phoneNumber, userByName.getPhoneNumber());
+        Optional<User> byId = userRepository.findById(save.getId());
+        Assert.assertTrue(byId.isPresent());
+        Assert.assertEquals(phoneNumber, byId.get().getPhoneNumber());
     }
 }

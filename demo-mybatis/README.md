@@ -1,6 +1,8 @@
 # SpringBoot 整合 Mybatis
 MyBatis 官方中文文档：https://mybatis.org/mybatis-3/zh/
 
+GitHub: https://github.com/mybatis/mybatis-3
+
 参考文档：https://blog.didispace.com/spring-boot-learning-21-3-5/
 
 ## 1 数据库环境
@@ -73,16 +75,13 @@ spring:
       max-lifetime: 540000
       connection-timeout: 60000
       connection-test-query: SELECT 1
-# 日志级别
-logging:
-  level:
-    com.xiao.mybatis.mapper: debug
-# mybatis配置，下划线转驼峰、mapper文件位置、包别名
+# mybatis配置，下划线转驼峰、打印SQL语句、mapper文件位置、包别名
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:mappers/*.xml
-  type-aliases-package: com.xiao.mybatis.pojo
+  type-aliases-package: com.xiao.mybatis.entity
 ```
 ## 4 实体类、Mapper接口、xml文件
 1. **实体类**
@@ -150,7 +149,7 @@ public interface UserMapper {
      * @return 用户信息
      */
     @Select("SELECT * FROM user WHERE id = #{id}")
-    User selectById(@Param("id") Integer id);
+    User selectById(@Param("id") Long id);
 
     /**
      * 新增用户信息
@@ -173,11 +172,12 @@ public interface UserMapper {
      * @return 成功 ：1； 失败 ： 0
      */
     @Delete("update user set status = 0 where id = #{id}")
-    int deleteById(@Param("id") Integer id);
+    int deleteById(@Param("id") Long id);
 }
 ```
 3. **xml 配置文件**
 
+insert 标签中标明` useGeneratedKeys="true" keyProperty="id"`：可以将自增主键的值设置进实体类中
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
