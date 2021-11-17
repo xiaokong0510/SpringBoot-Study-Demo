@@ -7,5 +7,5 @@ SpringBoot-Study-Demo
 5. [demo-swagger  Swagger2 API文档](./demo-swagger2)
 6. [demo-mybatis  使用 JdbcTemplate 访问数据库](./demo-jdbctemplate)
 7. [demo-mybatis  SpringBoot 整合 MyBatis](./demo-mybatis)
-8. [demo-mybatis  SpringBoot 整合 JPA](./demo-jpa)
+8. [demo-jpa  SpringBoot 整合 JPA](./demo-jpa)
 
