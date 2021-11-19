@@ -19,6 +19,7 @@
         <module>demo-jpa</module>
         <module>demo-jdbctemplate-multi-datasource</module>
         <module>demo-mybatis-multi-datasource</module>
+        <module>demo-jpa-multi-datasource</module>
     </modules>
 
     <properties>

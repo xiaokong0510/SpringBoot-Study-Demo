@@ -10,3 +10,4 @@ SpringBoot-Study-Demo
 8. [demo-jpa  SpringBoot 整合 JPA](./demo-jpa)
 9. [demo-jdbctemplate-multi-datasource  JdbcTemplate 多数据源配置](./demo-jdbctemplate-multi-datasource)
 10. [demo-mybatis-multi-datasource  MyBatis 多数据源配置](./demo-mybatis-multi-datasource)
+11. [demo-jpa-multi-datasource  SpringData JPA 多数据源配置](./demo-jpa-multi-datasource)

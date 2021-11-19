@@ -33,6 +33,7 @@ public class PrimaryConfig {
 
     /**
      * 配置SqlSessionFactory
+     * 创建Bean的时候，默认会使用方法名称来作为 Bean的名称,也可以在 @Bean 注解中指定 name 属性
      *
      * @return
      * @throws Exception
@@ -64,7 +65,7 @@ public class PrimaryConfig {
      * @return
      */
     @Bean
-    public DataSourceTransactionManager PrimaryTransactionManagery(@Qualifier("primaryDataSource") DataSource primaryDataSource) {
+    public DataSourceTransactionManager primaryTransactionManager(@Qualifier("primaryDataSource") DataSource primaryDataSource) {
         return new DataSourceTransactionManager(primaryDataSource);
     }
 }

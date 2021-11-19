@@ -10,7 +10,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
@@ -21,6 +20,9 @@ import java.time.LocalDateTime;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MybatisMultiDataSourceApplicationTest {
+    /**
+     * 不指定的时候 @Qualifier时，会采用参数的名字来查找Bean，存在的话就注入
+     */
     @Autowired
     private UserMapperPrimary userMapperPrimary;
     @Autowired
